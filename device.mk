@@ -5,7 +5,7 @@
 #
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/xiaomi/violet/violet-vendor.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/davinci/davinci-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
