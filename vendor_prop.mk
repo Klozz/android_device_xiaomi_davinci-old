@@ -11,13 +11,37 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.min.duration.secs=30 \
     audio.offload.video=true \
     av.offload.enable=true \
-    vendor.audio.adm.buffering.ms=2 \
-    vendor.audio.chk.cal.spk=0 \
-    vendor.audio.chk.cal.us=0 \
+    persist.audio.fluence.speaker=true \
+    persist.audio.fluence.voicecall=true \
+    persist.audio.fluence.voicerec=false \
+    persist.vendor.audio.button_jack.profile=volume \
+    persist.vendor.audio.button_jack.switch=0 \
+    persist.vendor.audio.fluence.speaker=true \
+    persist.vendor.audio.fluence.voicecall=true \
+    persist.vendor.audio.fluence.voicerec=false \
+    persist.vendor.audio.hifi=false \
+    persist.vendor.audio.ras.enabled=false \
+    ro.af.client_heap_size_kbyte=7168 \
+    ro.audio.recording.hd=true \
+    ro.config.vc_call_vol_steps=11 \
+    ro.qc.sdk.audio.fluencetype=none \
+    ro.qc.sdk.audio.ssr=false \
+    ro.vendor.audio.game.effect=true \
+    ro.vendor.audio.hifi=true \
+    ro.vendor.audio.sdk.fluencetype=fluence \
+    ro.vendor.audio.sdk.ssr=false \
+    ro.vendor.audio.sos=true \
+    ro.vendor.audio.soundfx.type=mi \
+    ro.vendor.audio.soundfx.usb=true \
+    ro.vendor.audio.us.proximity=false \
+    ro.vendor.audio.voice.volume.boost=manual \
+    tunnel.audio.encode = true \
+    use.voice.path.for.pcm.voip=true \
+    vendor.audio.adm.buffering.ms=6 \
     vendor.audio.dolby.ds2.enabled=false \
     vendor.audio.dolby.ds2.hardbypass=false \
     vendor.audio.flac.sw.decoder.24bit=true \
-    vendor.audio.hw.aac.encoder=true \
+    vendor.audio.hw.aac.encoder=false \
     vendor.audio.noisy.broadcast.delay=600 \
     vendor.audio.offload.buffer.size.kb=32 \
     vendor.audio.offload.gapless.enabled=true \
@@ -34,13 +58,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio_hal.in_period_size=144 \
     vendor.audio_hal.period_multiplier=3 \
     vendor.audio_hal.period_size=192 \
-    persist.vendor.audio.ras.enabled=false \
-    ro.qc.sdk.audio.ssr=false \
-    ro.vendor.audio.sdk.ssr=false \
-    ro.vendor.audio.sos=true \
-    ro.vendor.audio.voice.volume.boost=manual \
-    tunnel.audio.encode = true \
-    qcom.hw.aac.encoder=true
+    vendor.voice.path.for.pcm.voip=false
 
 # AudioFlinger client heap size
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -51,9 +69,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.disableabsvol=true \
     persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive \
     persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
+    persist.vendor.btstack.connect.peer_earbud=true \
     persist.vendor.btstack.enable.splita2dp=true \
-    ro.bluetooth.emb_wp_mode=true \
-    ro.bluetooth.wipower=true \
+    persist.vendor.btstack.enable.twsplus=true \
+    ro.bluetooth.emb_wp_mode=false \
+    ro.bluetooth.wipower=false \
     vendor.bluetooth.soc=cherokee \
     vendor.qcom.bluetooth.soc=cherokee \
     persist.vendor.btstack.avrcp-playstatus.blacklist=true \
@@ -102,27 +122,35 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display
  PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.sensortype=2 \
-    ro.vendor.display.svi=1 \
+    ro.display.type=oled \
+    ro.displayfeature.histogram.enable=true \
+    ro.vendor.display.ad=1 \
+    ro.vendor.display.cabl=2 \
+    ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
+    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
+    sys.displayfeature.hbm.enable=true \
+    sys.displayfeature_hidl=true \
     vendor.display.comp_mask=0 \
     vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0 \
-    vendor.display.disable_decimation=1 \
+   vendor.display.disable_decimation=1 \
     vendor.display.disable_excl_rect=0 \
     vendor.display.disable_excl_rect_partial_fb=1 \
-    vendor.display.disable_hw_recovery=1 \
     vendor.display.disable_inline_rotator=1 \
     vendor.display.disable_scaler=0 \
-    vendor.display.enable_default_color_mode=0 \
     vendor.display.enable_null_display=0 \
+    vendor.gralloc.disable_ubwc=0 \
+    persist.vendor.sys.fp.fod.location.X_Y=445,1931 \
+    vendor.display.disable_hw_recovery=1 \
+    vendor.display.enable_default_color_mode=0 \
     vendor.display.enable_optimize_refresh=1 \
     debug.mdpcomp.logs=0 \
     persist.sys.sf.color_saturation=1.0 \
-    vendor.display.svi.config=1 \
-    vendor.display.svi.config_path=/system/etc/display/SVIConfig.xml \
     ro.colorpick_adjust=true
 
 # DPM
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.dpm.feature=1
+    persist.vendor.dpm.feature=1 \
+    persist.vendor.dpm.nsrm.bkg.evt=3955 \
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -193,7 +221,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mmp.enable.3g2=true \
     persist.mm.enable.prefetch=true \
     vendor.mm.enable.qcom_parser=63963135 \
-    media.stagefright.enable-fma2dp=true
+    media.stagefright.enable-fma2dp=true \
+    qcom.hw.aac.encoder=true \
+    media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
 # Memory Optimisations
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -216,6 +246,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.data.mode=concurrent \
     ro.vendor.use_data_netmgrd=true
 
+# NFC 
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.power.pasr.enabled=true \
+    ro.hardware.nfc_nci=nqx.default \
+    ro.nfc.port=I2C
+
 # Network Location Provider
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.location.osnlp.package=com.google.android.gms \
@@ -228,11 +264,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Perf Stack
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
-    vendor.perf.dolphin.enable=false \
+    vendor.perf.dolphin.enable=true \
     vendor.perf.gestureflingboost.enable=true \
     vendor.perf.workloadclassifier.enable=true \
     persist.vendor.qti.games.gt.prof=1 \
     ro.vendor.qti.config.zram=true
+    persist.vendor.data.mode=concurrent \   
+    ro.vendor.at_library=libqti-at.so \
+    vendor.iop.enable_prefetch_ofr=0 \
+    vendor.iop.enable_uxe=0 \
 
 # Qualcomm System Daemon
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -243,34 +283,40 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.df.dev_name=rmnet_usb0
 
 # Radio/RIL
- PRODUCT_PROPERTY_OVERRIDES += \
-    use.voice.path.for.pcm.voip=true \
-    vendor.voice.path.for.pcm.voip=true \
+PRODUCT_PROPERTY_OVERRIDES += \
+    DEVICE_PROVISIONED=1 \
+    persist.data.df.dev_name=rmnet_usb0 \
+    persist.data.profile_update=true \
+    persist.radio.NO_STAPA=1 \
+    persist.radio.VT_CAM_INTERFACE=1 \
+    persist.radio.VT_HYBRID_ENABLE=1 \
     persist.radio.atfwd.start=false \
+    persist.radio.dynamic_sar=false \
+    persist.radio.dynamic_sar=true \
     persist.radio.multisim.config=dsds \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.data_con_rprt=1 \
+    persist.vendor.radio.force_on_dc=true \
     persist.vendor.radio.rat_on=combine \
+    persist.vendor.radio.redir_party_num=1 \
     persist.vendor.radio.sib16_support=1 \
-    persist.vendor.radio.snapshot_enabled=1 \
-    persist.vendor.radio.snapshot_timer=5 \
-    ril.subscription.types=NV,RUIM \
+    ril.subscription.types=RUIM \
     rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ro.carrier=unknown \
     ro.com.android.dataroaming=true \
+    ro.telephony.default_cdma_sub=0 \
     ro.telephony.default_network=22,22 \
-    telephony.lteOnCdmaDevice=1 \
-    keyguard.no_require_sim=true \
-    DEVICE_PROVISIONED=1
+    telephony.lteOnCdmaDevice=1
 
 # SSR
 PRODUCT_PROPERTY_OVERRIDES += \
-persist.vendor.ssr.restart_level=ALL_ENABLE
+    persist.vendor.ssr.enable_ramdumps=1 \
+    persist.vendor.ssr.restart_level=ALL_ENABLE
 
 # Screen Density
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=440
+    ro.sf.lcd_density=480
 
 # Simulate sdcard on /data/media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -292,8 +338,28 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     config.disable_rtt=true \
     ro.wlan.chip=39xx \
-    ro.wlan.mimo=1
+    ro.wlan.mimo=0 \
+    ro.wlan.vendor=qcom
 
 # XLAT
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.net.doxlat=true
+
+# (?)
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.egl.hw=0 \
+    debug.sf.enable_hwc_vds=1 \
+    debug.sf.hw=0 \
+    debug.sf.latch_unsignaled=1 \
+    dev.pm.dyn_samplingrate=1 \
+    persist.sys.sf.color_saturation=1.0 \
+    persist.sys.strictmode.disable=true \
+    persist.vendor.qcomsysd.enabled=1 \
+    persist.vendor.sys.fp.fod.size.width_height=190,190 \
+    ro.colorpick_adjust=true \
+    ro.eyecare.brightness.level=5 \
+    ro.eyecare.brightness.threshold=11 \
+    ro.hardware.fp.fod=true \
+    ro.hardware.keystore_desede=true \
+    ro.hist.brightness.threshold=7 \
+    sys.qca1530=detect
